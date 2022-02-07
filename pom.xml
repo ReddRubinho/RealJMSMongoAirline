@@ -10,9 +10,9 @@
     <version>1.2-SNAPSHOT</version>
 
     <scm>
-        <url>https://github.com/ReddRubinho/JMSMongoAirline.git</url>
-        <connection>scm:git:git://github.com/ReddRubinho/JMSMongoAirline.git</connection>
-        <developerConnection>scm:git:git@github.com:ReddRubinho/JMSMongoAirline.git</developerConnection>
+        <url>https://github.com/ReddRubinho/RealJMSMongoAirline.git</url>
+        <connection>scm:git:git://github.com/ReddRubinho/RealJMSMongoAirline.git</connection>
+        <developerConnection>scm:git:git@github.com:ReddRubinho/RealJMSMongoAirline.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
@@ -20,7 +20,7 @@
         <repository>
             <id>github</id>
             <name>GitHub OWNER Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/ReddRubinho/JMSMongoAirline</url>
+            <url>https://maven.pkg.github.com/ReddRubinho/RealJMSMongoAirline</url>
         </repository>
     </distributionManagement>
 

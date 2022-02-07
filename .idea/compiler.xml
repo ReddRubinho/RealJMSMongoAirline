@@ -6,9 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="airline-model" />
+        <module name="model" />
         <module name="API-rest" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="airline-model" target="15" />
+    </bytecodeTargetLevel>
   </component>
 </project>

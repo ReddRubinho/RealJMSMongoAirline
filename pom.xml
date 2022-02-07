@@ -27,6 +27,7 @@
     <modules>
         <module>airline-model</module>
         <module>API-rest</module>
+        <module>model</module>
     </modules>
 
     <properties>

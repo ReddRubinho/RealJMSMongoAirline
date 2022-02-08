@@ -13,14 +13,105 @@ import java.util.Objects;
 public class Passenger {
 
     @Id
-    private CompositeKey id;
+    private CompositeKey passengerId;
     private String email;
     private String name;
     private String surname;
     private Integer seat;
     private List<Bagagge> baggage;
 
-    static class CompositeKey implements Serializable {
+    @JsonCreator
+    public Passenger(@JsonProperty("nif") String nif,
+                     @JsonProperty("flighNumber") Integer flighNumber,
+                     @JsonProperty("email") String email,
+                     @JsonProperty("name") String name,
+                     @JsonProperty("surname") String surname,
+                     @JsonProperty("seat") Integer seat,
+                     @JsonProperty("baggage") List<Bagagge> baggage) {
+
+        this.passengerId = new CompositeKey(nif, flighNumber);
+        this.email = email;
+        this.name = name;
+        this.surname = surname;
+        this.seat = seat;
+        this.baggage = baggage;
+    }
+
+    public CompositeKey getPassengerId() {
+        return passengerId;
+    }
+
+    public void setPassengerId(CompositeKey passengerId) {
+        this.passengerId = passengerId;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public Integer getSeat() {
+        return seat;
+    }
+
+    public void setSeat(Integer seat) {
+        this.seat = seat;
+    }
+
+    public List<Bagagge> getBaggage() {
+        return baggage;
+    }
+
+    public void setBaggage(List<Bagagge> baggage) {
+        this.baggage = baggage;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Passenger passenger = (Passenger) o;
+        return Objects.equals(passengerId, passenger.passengerId) && Objects.equals(email, passenger.email) && Objects.equals(name, passenger.name) && Objects.equals(surname, passenger.surname) && Objects.equals(seat, passenger.seat) && Objects.equals(baggage, passenger.baggage);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(passengerId, email, name, surname, seat, baggage);
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Passenger{");
+        sb.append("id=").append(passengerId);
+        sb.append(", email='").append(email).append('\'');
+        sb.append(", name='").append(name).append('\'');
+        sb.append(", surname='").append(surname).append('\'');
+        sb.append(", seat=").append(seat);
+        sb.append(", baggage=").append(baggage);
+        sb.append('}');
+        return sb.toString();
+    }
+
+    public static class CompositeKey implements Serializable {
         private String nif;
         private Integer flightNumber;
 
@@ -68,48 +159,5 @@ public class Passenger {
             sb.append('}');
             return sb.toString();
         }
-    }
-
-    @JsonCreator
-    public Passenger(@JsonProperty("nif") String nif,
-                     @JsonProperty("flighNumber") Integer flighNumber,
-                     @JsonProperty("email") String email,
-                     @JsonProperty("name") String name,
-                     @JsonProperty("surname") String surname,
-                     @JsonProperty("seat") Integer seat,
-                     @JsonProperty("baggage") List<Bagagge> baggage) {
-
-        this.id = new CompositeKey(nif, flighNumber);
-        this.email = email;
-        this.name = name;
-        this.surname = surname;
-        this.seat = seat;
-        this.baggage = baggage;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Passenger passenger = (Passenger) o;
-        return Objects.equals(id, passenger.id) && Objects.equals(email, passenger.email) && Objects.equals(name, passenger.name) && Objects.equals(surname, passenger.surname) && Objects.equals(seat, passenger.seat) && Objects.equals(baggage, passenger.baggage);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, email, name, surname, seat, baggage);
-    }
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("Passenger{");
-        sb.append("id=").append(id);
-        sb.append(", email='").append(email).append('\'');
-        sb.append(", name='").append(name).append('\'');
-        sb.append(", surname='").append(surname).append('\'');
-        sb.append(", seat=").append(seat);
-        sb.append(", baggage=").append(baggage);
-        sb.append('}');
-        return sb.toString();
     }
 }

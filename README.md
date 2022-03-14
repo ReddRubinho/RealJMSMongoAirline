@@ -1,2 +1,2 @@
-# RealJMSMongoAirline
+# JMS Mongo Airline
  MultiModule Project
